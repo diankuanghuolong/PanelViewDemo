@@ -118,23 +118,36 @@
 }
 -(void)inputPhoto:(UIButton *)sender
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"选择图片" preferredStyle:UIAlertControllerStyleAlert];
-    
-    //打开相册
-    __weak typeof(self) weakSelf = self;
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    sender.selected = !sender.selected;
+    if (sender.selected)//插入水印
+    {
         
-        [weakSelf openPhotoShop];
-    }];
-    [alert addAction:action];
-    
-    //打开相机
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [sender setTitle:@"清除水印" forState:UIControlStateNormal];
         
-        [weakSelf openCamare];
-    }];
-    [alert addAction:action1];
-    [self presentViewController:alert animated:YES completion:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"选择图片" preferredStyle:UIAlertControllerStyleAlert];
+        
+        //打开相册
+        __weak typeof(self) weakSelf = self;
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [weakSelf openPhotoShop];
+        }];
+        [alert addAction:action];
+        
+        //打开相机
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [weakSelf openCamare];
+        }];
+        [alert addAction:action1];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else//清除水印
+    {
+        [sender setTitle:@"插入水印" forState:UIControlStateNormal];
+        [_panelView.logoIV removeFromSuperview];
+    }
+   
 }
 -(void)openCamare
 {
