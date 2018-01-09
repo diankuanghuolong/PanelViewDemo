@@ -17,6 +17,7 @@
 
 @property(nonatomic,strong) UIColor *color;
 @property(nonatomic,assign) CGFloat width;
+@property (nonatomic ,strong)UIImageView *logoIV;
 
 //撤销
 - (void)undo;

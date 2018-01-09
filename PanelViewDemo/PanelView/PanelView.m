@@ -21,6 +21,12 @@
         //设置默认值
         _color = [UIColor grayColor];
         _width = 1.0;
+        
+        _logoIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width - 70, 10, 60, 60)];
+        _logoIV.layer.cornerRadius = 6;
+        _logoIV.layer.masksToBounds = YES;
+        _logoIV.alpha = 0.5;
+        [self addSubview:_logoIV];
     }
     return self;
 }

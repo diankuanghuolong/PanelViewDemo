@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0AC9BEC2DE6E3E8972B63BB /* libPods-PanelViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E400BB5CDF0B4B798B0E5938 /* libPods-PanelViewDemo.a */; };
 		B60523091FE8A7F600AD86D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B60523081FE8A7F600AD86D2 /* AppDelegate.m */; };
 		B605230C1FE8A7F600AD86D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B605230B1FE8A7F600AD86D2 /* ViewController.m */; };
 		B605230F1FE8A7F600AD86D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B605230D1FE8A7F600AD86D2 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0E7B34DEA5B0AFEF5FA31E /* Pods-PanelViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanelViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanelViewDemo/Pods-PanelViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		74C943EE5F73106E94814036 /* Pods-PanelViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanelViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PanelViewDemo/Pods-PanelViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B60523041FE8A7F600AD86D2 /* PanelViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanelViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60523071FE8A7F600AD86D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B60523081FE8A7F600AD86D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,7 +42,10 @@
 		B60523281FE8A8CF00AD86D2 /* PathModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathModel.m; sourceTree = "<group>"; };
 		B605232A1FE8AB1000AD86D2 /* SelectCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectCtrl.h; sourceTree = "<group>"; };
 		B605232B1FE8AB1000AD86D2 /* SelectCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectCtrl.m; sourceTree = "<group>"; };
+		B684752C2004B173000BBFD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B684752D2004B173000BBFD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		B6CD44931FF37CCC003D23BA /* panelViewDemo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = panelViewDemo.gif; sourceTree = "<group>"; };
+		E400BB5CDF0B4B798B0E5938 /* libPods-PanelViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PanelViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0AC9BEC2DE6E3E8972B63BB /* libPods-PanelViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +65,8 @@
 			children = (
 				B60523061FE8A7F600AD86D2 /* PanelViewDemo */,
 				B60523051FE8A7F600AD86D2 /* Products */,
+				E560879201BABAE1CA6C1B3E /* Pods */,
+				E020FB4F1EDC14237AAC88E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +119,23 @@
 			path = showimages;
 			sourceTree = "<group>";
 		};
+		E020FB4F1EDC14237AAC88E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E400BB5CDF0B4B798B0E5938 /* libPods-PanelViewDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E560879201BABAE1CA6C1B3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74C943EE5F73106E94814036 /* Pods-PanelViewDemo.debug.xcconfig */,
+				0C0E7B34DEA5B0AFEF5FA31E /* Pods-PanelViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B605231A1FE8A7F600AD86D2 /* Build configuration list for PBXNativeTarget "PanelViewDemo" */;
 			buildPhases = (
+				F57B1106A3977BB24201A923 /* [CP] Check Pods Manifest.lock */,
 				B60523001FE8A7F600AD86D2 /* Sources */,
 				B60523011FE8A7F600AD86D2 /* Frameworks */,
 				B60523021FE8A7F600AD86D2 /* Resources */,
+				416B5ABEA1EA412E2E975844 /* [CP] Embed Pods Frameworks */,
+				E4B3A0677658312D0C68B624 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,6 +206,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		416B5ABEA1EA412E2E975844 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PanelViewDemo/Pods-PanelViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4B3A0677658312D0C68B624 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PanelViewDemo/Pods-PanelViewDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F57B1106A3977BB24201A923 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PanelViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B60523001FE8A7F600AD86D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,6 +279,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B605230E1FE8A7F600AD86D2 /* Base */,
+				B684752C2004B173000BBFD5 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -207,6 +288,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B60523131FE8A7F600AD86D2 /* Base */,
+				B684752D2004B173000BBFD5 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -218,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -273,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -320,11 +404,13 @@
 		};
 		B605231B1FE8A7F600AD86D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74C943EE5F73106E94814036 /* Pods-PanelViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8BZG77GPE;
 				INFOPLIST_FILE = PanelViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ios.PanelViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -334,11 +420,13 @@
 		};
 		B605231C1FE8A7F600AD86D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C0E7B34DEA5B0AFEF5FA31E /* Pods-PanelViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8BZG77GPE;
 				INFOPLIST_FILE = PanelViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ios.PanelViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
