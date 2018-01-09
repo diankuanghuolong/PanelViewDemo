@@ -20,6 +20,7 @@
 @interface ViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic ,strong)PanelView *panelView;
+@property (nonatomic ,strong)UIButton *leftBtn;
 @end
 
 @implementation ViewController
@@ -46,11 +47,14 @@
     [leftBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     leftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [leftBtn addTarget:self action:@selector(inputPhoto:) forControlEvents:UIControlEventTouchUpInside];
-    
+    _leftBtn = leftBtn;
     UIBarButtonItem *leftBbi = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     
     self.navigationItem.rightBarButtonItem = rightBbi;
     self.navigationItem.leftBarButtonItem = leftBbi;
+    
+    //kvo监听leftBtn状态
+    [self.leftBtn addObserver:self forKeyPath:@"select" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 
@@ -119,9 +123,9 @@
 -(void)inputPhoto:(UIButton *)sender
 {
     sender.selected = !sender.selected;
-    if (sender.selected)//插入水印
+    if (sender.selected && !_panelView.logoIV.image)//插入水印
     {
-        
+        sender.selected = NO;
         [sender setTitle:@"清除水印" forState:UIControlStateNormal];
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"选择图片" preferredStyle:UIAlertControllerStyleAlert];
@@ -144,6 +148,7 @@
     }
     else//清除水印
     {
+        sender.selected = YES;
         [sender setTitle:@"插入水印" forState:UIControlStateNormal];
         _panelView.logoIV.image = nil;
     }
@@ -206,7 +211,11 @@
     }];
 }
 
-
+#pragma mark ===== kvo  =====
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    
+}
 
 #pragma mark  =====  tool =====
 -(NSData *)imageData:(UIImage *)myimage//图片压缩
