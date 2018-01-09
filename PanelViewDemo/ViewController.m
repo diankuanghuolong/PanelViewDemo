@@ -145,7 +145,7 @@
     else//清除水印
     {
         [sender setTitle:@"插入水印" forState:UIControlStateNormal];
-        [_panelView.logoIV removeFromSuperview];
+        _panelView.logoIV.image = nil;
     }
    
 }
