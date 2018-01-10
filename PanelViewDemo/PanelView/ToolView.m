@@ -231,7 +231,7 @@
 //选择线宽事件
 - (void)lineButtonAction:(UIButton *)button{
     
-    for (UIButton *btn in _selectColorArr)
+    for (UIButton *btn in _lineWidthBtnArr)
     {
         btn.layer.borderWidth = 0;
         btn.layer.borderColor = [UIColor clearColor].CGColor;

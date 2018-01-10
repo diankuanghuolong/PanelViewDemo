@@ -9,12 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PanelView : UIView
-{
-    
-    NSMutableArray *_pathArray;
-}
 
-
+@property (nonatomic ,strong)NSMutableArray *pathArray;
 @property(nonatomic,strong) UIColor *color;
 @property(nonatomic,assign) CGFloat width;
 @property (nonatomic ,strong)UIImageView *logoIV;

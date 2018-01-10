@@ -52,9 +52,6 @@
     
     self.navigationItem.rightBarButtonItem = rightBbi;
     self.navigationItem.leftBarButtonItem = leftBbi;
-    
-    //kvo监听leftBtn状态
-    [self.leftBtn addObserver:self forKeyPath:@"select" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 
@@ -104,43 +101,57 @@
 #pragma mark  ===== action  =====
 -(void)savePhoto:(UIButton *)sender
 {
-    UIView * contentView = _panelView;
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(contentView.frame.size.width, contentView.frame.size.height), YES, 0);     //设置截屏大小
-    [[contentView layer] renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage * viewImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//保存图片到照片
-    
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.detailsLabel.text = @"已经保存到本地";
-    hud.margin = 12.f;
-    hud.offset = CGPointMake(0, 0);
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:1.f];
+    if (!_panelView.pathArray || _panelView.pathArray.count <= 0)
+    {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabel.text = @"您还未绘制内容";
+        hud.margin = 12.f;
+        hud.offset = CGPointMake(0, 0);
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hideAnimated:YES afterDelay:1.f];
+        return;
+    }
+    else
+    {
+        UIView * contentView = _panelView;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(contentView.frame.size.width, contentView.frame.size.height), YES, 0);     //设置截屏大小
+        [[contentView layer] renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage * viewImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//保存图片到照片
+        
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabel.text = @"已经保存到本地";
+        hud.margin = 12.f;
+        hud.offset = CGPointMake(0, 0);
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hideAnimated:YES afterDelay:1.f];
+    }
 }
 -(void)inputPhoto:(UIButton *)sender
 {
     sender.selected = !sender.selected;
     if (sender.selected && !_panelView.logoIV.image)//插入水印
     {
-        sender.selected = NO;
+        sender.selected = YES;
         [sender setTitle:@"清除水印" forState:UIControlStateNormal];
-        
+
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"选择图片" preferredStyle:UIAlertControllerStyleAlert];
-        
+
         //打开相册
         __weak typeof(self) weakSelf = self;
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+
             [weakSelf openPhotoShop];
         }];
         [alert addAction:action];
-        
+
         //打开相机
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+
             [weakSelf openCamare];
         }];
         [alert addAction:action1];
@@ -148,7 +159,7 @@
     }
     else//清除水印
     {
-        sender.selected = YES;
+        sender.selected = NO;
         [sender setTitle:@"插入水印" forState:UIControlStateNormal];
         _panelView.logoIV.image = nil;
     }
@@ -208,13 +219,11 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:^{
+        
+        _leftBtn.selected = NO;
+       [_leftBtn setTitle:@"插入水印" forState:UIControlStateNormal];
+        
     }];
-}
-
-#pragma mark ===== kvo  =====
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
-{
-    
 }
 
 #pragma mark  =====  tool =====
