@@ -25,7 +25,7 @@
         _logoIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width - 70, 10, 60, 60)];
         _logoIV.layer.cornerRadius = 6;
         _logoIV.layer.masksToBounds = YES;
-        _logoIV.alpha = 0.8;
+        _logoIV.alpha = 0.6;
         [self addSubview:_logoIV];
     }
     return self;
