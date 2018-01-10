@@ -183,7 +183,9 @@
         
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-
+            _leftBtn.selected = NO;
+            [_leftBtn setTitle:@"插入水印" forState:UIControlStateNormal];
+            
         }];
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
